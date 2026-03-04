@@ -325,6 +325,55 @@
       color: var(--drivex-primary);
       border-color: var(--drivex-primary);
     }
+    .challenge-track-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+      gap: 0.75rem;
+      margin: 1rem 0 1.15rem;
+    }
+
+    .challenge-track-button {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.2rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: var(--drivex-radius-xl);
+      border: 1px solid rgba(45,212,191,0.36);
+      background:
+        radial-gradient(circle at top right, rgba(56,189,248,0.24), transparent 55%),
+        linear-gradient(135deg, rgba(45,212,191,0.16), rgba(15,23,42,0.95));
+      color: #f0fdfa;
+      box-shadow: var(--drivex-shadow-soft);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .challenge-track-button:hover {
+      color: #f0fdfa;
+      border-color: rgba(56,189,248,0.72);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 38px rgba(15,23,42,0.52);
+    }
+
+    .challenge-track-button .track-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(224,242,254,0.78);
+      font-weight: 700;
+    }
+
+    .challenge-track-button .track-name {
+      font-size: 0.96rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .challenge-track-button .track-date {
+      font-size: 0.78rem;
+      color: #99f6e4;
+      font-weight: 600;
+    }
 
     .schedule-table-wrapper {
       background: var(--drivex-card-bg);
@@ -621,7 +670,6 @@
       <a class="navbar-item" href="#introduction">Introduction</a>
       <a class="navbar-item" href="#schedule">Schedule</a>
       <a class="navbar-item" href="#speakers">Speakers</a>
-      <a class="navbar-item" href="#paper-track">Paper Track</a>
       <a class="navbar-item" href="#challenge">Challenge</a>
       <a class="navbar-item" href="#organizers">Organizers</a>
       <a class="navbar-item" href="#pc">Program Committee</a>
@@ -702,7 +750,6 @@
       <a href="#introduction" class="button is-small is-rounded is-light">Introduction</a>
       <a href="#schedule" class="button is-small is-rounded is-light">Schedule</a>
       <a href="#speakers" class="button is-small is-rounded is-light">Speakers</a>
-      <a href="#paper-track" class="button is-small is-rounded is-light">Paper Track</a>
       <a href="#challenge" class="button is-small is-rounded is-light">Challenge</a>
       <a href="#organizers" class="button is-small is-rounded is-light">Organizers</a>
       <a href="#pc" class="button is-small is-rounded is-light">Program Committee</a>
@@ -796,7 +843,7 @@
           <td>09:10</td>
           <td>09:30</td>
           <td>Keynote Presentation 1 <span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></td>
-          <!-- <td>Dr. Jim Misener</td>
+          <!-- <td>Jim Misener</td>
           <td>Qualcomm</td> -->
         </tr>
         <tr>
@@ -1011,16 +1058,16 @@
           <div class="keynote-avatar-wrap">
             <img class="keynote-avatar"
                  src="static/img/jim_misener.jpeg"
-                 alt="Dr. Jim Misener">
+                 alt="Jim Misener">
           </div>
           <div class="keynote-text">
-            <p class="keynote-name">Dr. Jim Misener</p>
-            <p class="keynote-affiliation">Qualcomm</p>
+            <p class="keynote-name">Jim Misener</p>
+            <p class="keynote-affiliation">WSP</p>
           </div>
           <div class="keynote-logo-wrap">
             <img class="keynote-logo"
-                 src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Qualcomm-Logo.svg"
-                 alt="Qualcomm Logo">
+                 src="https://media.licdn.com/dms/image/v2/C4D0BAQHbu6pX9K5A8A/company-logo_200_200/company-logo_200_200/0/1631348956267?e=2147483647&v=beta&t=Qclw-iRXEmD05I0tefydKS3lHtxXHCwdCZwtfkq4jC8"
+                 alt="WSP Logo">
           </div>
         </div>
       </a>
@@ -1103,11 +1150,11 @@
           </div>
           <div class="keynote-text">
             <p class="keynote-name">Prof. Ignacio Alvarez</p>
-            <p class="keynote-affiliation">THI &amp; Intel Labs</p>
+            <p class="keynote-affiliation">THI</p>
           </div>
           <div class="keynote-logo-wrap">
             <img class="keynote-logo"
-                 src="https://avatars.githubusercontent.com/u/1492758?s=200&v=4"
+                 src="https://upload.wikimedia.org/wikipedia/commons/6/66/Technische_Hochschule_Ingolstadt.png"
                  alt="THI & Intel Labs Logo">
           </div>
         </div>
@@ -1129,7 +1176,7 @@
           </div>
           <div class="keynote-logo-wrap">
             <img class="keynote-logo"
-                 src="https://www.prototypesforhumanity.com/wp-content/uploads/2021/01/The-university-of-Sydney_Logo_original.png"
+                 src="https://www.cargowise.com/media/u0lj1jgi/uniofsyd-logo.png?width=200&v=1d8e40353e12b10"
                  alt="The University of Sydney Logo">
           </div>
         </div>
@@ -1184,98 +1231,81 @@
 
 </section>
 
-<section class="section" id="paper-track">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Paper Track</h2>
-    <p>
-      DriveX 2026 invites high-quality contributions on foundation models, V2X-based cooperative perception,
-      large driving models, 3D perception, and related topics outlined above.
-    </p>
-    <p>
-      We welcome:
-    </p>
-    <ul>
-      <li>Novel full papers (max 8 pages, excluding references) for publication in the official proceedings.</li>
-      <li>4-page extended abstracts or 8-page versions of recently published work (non-archival, not included in proceedings).</li>
-    </ul>
-    <p>
-      Submissions must follow the official IEEE ITSC2026 style guidelines. Detailed submission instructions will be provided.
-    </p>
-    <ul>
-      <li><b>Submission Portal</b>: <a href="https://its.papercept.net" target="_blank">its.papercept.net</a></li>
-      <li><b>Paper Submission Deadline</b>: January 30, 2026</li>
-      <li><b>Notification to Authors</b>: February 28, 2026</li>
-      <li><b>Workshop & Tutorial Websites Live</b>: March 1, 2026</li>
-      <li><b>Camera-Ready Deadline</b>: March 15, 2026</li>
-      <li><b>Workshops & Tutorials</b>: June 22, 2026</li>
-    </ul>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Paper Awards</h2>
-    <ul class="awards-list">
-      <li>🏆 Best Paper Award</li>
-      <li>🏆 Best Paper Runner-Up Award</li>
-      <li>🏆 Best Poster Award</li>
-      <li>🏆 Best Keynote Presentation Award</li>
-    </ul>
-  </div>
-</section>
-
 <section class="section" id="challenge">
   <div class="container is-max-desktop content">
-    <h2 class="title">DriveX Grand Challenge</h2>
-    <p>
-      The DriveX Grand Challenge fosters rigorous, reproducible benchmarking of cooperative perception and planning on real-world datasets.
-      Tracks are designed in close collaboration with dataset creators and industry partners.
-    </p>
-
-    <div class="challenge-tracks">
-
-      <div class="track-card">
-        <span class="track-badge"><span class="dot"></span> Feb 18 – May 1</span>
-        <h3>TUMTraf-V2X</h3>
-        <p class="track-desc">
-          Vehicle-to-infrastructure cooperative 3D detection and tracking using the
-          <a href="https://tum-traffic-dataset.github.io/tumtraf-v2x/" target="_blank">TUMTraf-V2X</a> dataset.
-          Teams fuse infrastructure-mounted LiDAR, radar, and cameras with on-vehicle sensors
-          to tackle occlusion handling, long-range awareness, and reliability under real-world traffic conditions.
-        </p>
-        <a class="track-link" href="https://www.codabench.org/competitions/14044/" target="_blank">
-          Go to challenge &rarr;
-        </a>
-      </div>
-
-      <div class="track-card">
-        <span class="track-badge"><span class="dot"></span> Feb 11 – May 20</span>
-        <h3>doScenes</h3>
-        <p class="track-desc">
-          Natural-language-driven scene understanding and visual language navigation for autonomous vehicles.
-          Participants build models that interpret free-form human instructions and ground them in driving scenes,
-          advancing research on intuitive human-vehicle interaction.
-        </p>
-        <a class="track-link" href="https://mi3-lab.github.io/doScenes_challenge" target="_blank">
-          Go to challenge &rarr;
-        </a>
-      </div>
-
-      <div class="track-card">
-        <span class="track-badge"><span class="dot"></span> Feb 20 – May 1</span>
-        <h3>MDrive</h3>
-        <p class="track-desc">
-          End-to-end closed-loop cooperative driving across multiple agents.
-          Using the <a href="https://mdrive-challenge.github.io/" target="_blank">MDrive</a> benchmark,
-          teams develop and evaluate planning, communication, and coordination strategies
-          for safe multi-vehicle autonomy in complex traffic scenarios.
-        </p>
-        <a class="track-link" href="https://mdrive-challenge.github.io/" target="_blank">
-          Go to challenge &rarr;
-        </a>
-      </div>
-
+    <div class="challenge-title-row">
+      <h2 class="title">DriveX Grand Challenge</h2>
+<!--      <p class="timeline-open-box"><span>&#128293;</span><span>All tracks are open now</span></p>-->
     </div>
+    <p>
+    
+    </p>
+    <div class="challenge-track-buttons">
+      <a class="challenge-track-button" href="https://www.codabench.org/competitions/14044" target="_blank" rel="noopener noreferrer">
+        <span class="track-label">Track 1</span>
+        <span class="track-name">TUMTraf-V2X Challenge</span>
+        <span class="track-date">Apr 15 - July 1</span>
+      </a>
+      <a class="challenge-track-button" href="https://mi3-lab.github.io/doScenes_challenge" target="_blank" rel="noopener noreferrer">
+        <span class="track-label">Track 2</span>
+        <span class="track-name">doScenes Challenge</span>
+        <span class="track-date">Apr 15 - July 1</span>
+      </a>
+      <a class="challenge-track-button" href="https://mdrive-challenge.github.io/" target="_blank" rel="noopener noreferrer">
+        <span class="track-label">Track 3</span>
+        <span class="track-name">MDrive Challenge</span>
+        <span class="track-date">Apr 15 - July 1</span>
+      </a>
+      <a class="challenge-track-button" href="https://rise-ai-workshop.github.io/" target="_blank" rel="noopener noreferrer">
+        <span class="track-label">Track 4</span>
+        <span class="track-name">nuReasoning Challenge</span>
+        <span class="track-date">Apr 15 - July 1</span>
+      </a>
+    </div>
+
+    <ul>
+      <li>
+        <p>
+          <b>V2I-Based Cooperative Perception</b><br>
+          Infrastructure–vehicle fusion using
+          <a href="https://www.codabench.org/competitions/14044" target="_blank">TUMTraf-V2X</a>.
+          Focus on cooperative 3D detection and tracking with infrastructure-mounted LiDAR, radar, and cameras,
+          emphasizing occlusion handling, long-range awareness, and reliability under real-world conditions.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <b>Natural Language Instruction for Human Interaction and Vision-Language Navigation</b><br>
+          Built upon
+          <a href="https://mi3-lab.github.io/doScenes_challenge" target="_blank">doScenes</a>.
+          Participants design models for natural language instructions and visual language navigation
+          to facilitate research on human-vehicle instruction interactions.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <b>Multi-Agent Reasoning</b><br>
+          Using
+          <a href="https://mdrive-challenge.github.io/" target="_blank">MDrive</a> 
+          teams explore a cooperative driving benchmark for end-to-end closed-loop multi-agent systems.
+        </p>
+      </li>
+    </ul>
+
+    <p><b>Competition Timeline</b></p>
+    <ul>
+      <li><b>Competition Announcement</b>: Apr 13, 2026 </li>
+      <li><b>Competition Start</b>: Apr 15, 2026 (10 weeks)</li>
+      <li><b>Submission Deadline</b>: July, 1 (23:59 PST)</li>
+      <li><b>Notification to Participants</b>: July 7, 2026</li>
+    </ul>
+
+    <p>
+      Top-performing teams will be invited to present at the workshop and will receive money prizes ($100) and award certificates. Detailed rules, baselines, and submission
+      instructions are available on the official challenge page.
+    </p>
   </div>
 </section>
 
@@ -1479,7 +1509,7 @@
             </div>
             <div class="card-content">
               <p class="title is-7">Dr. Larissa Triess</p>
-              <p class="organizer-affiliation">Mercedes-Benz</p>
+              <p class="organizer-affiliation">Google</p>
             </div>
           </div>
         </a>
@@ -1687,7 +1717,7 @@
     </p>
     <p>
       For sponsorship opportunities, please contact:
-      <a href="mailto:walter.zimmer@cs.tum.edu">walter.zimmer@cs.tum.edu</a>.
+      <a href="mailto:wz@ucla.edu">wz@ucla.edu</a>.
     </p>
   </div>
 </section>
